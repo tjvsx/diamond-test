@@ -4,6 +4,9 @@ pragma solidity ^0.8.0;
 import { Counter } from "../storage/Counter.sol";
 
 contract Test1Facet {
+
+    address private admin;
+
     event TestEvent(address something);
 
     function test1Func1() external payable {
@@ -16,5 +19,7 @@ contract Test1Facet {
     function test1Func10() external pure returns (string memory) {
         return 'ciao';
     }
-    /* function supportsInterface(bytes4 _interfaceID) external view returns (bool) {} */
+    // function getOwner() external view returns(address) {
+    // return admin;
+    // }
 }
