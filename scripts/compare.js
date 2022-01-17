@@ -34,5 +34,5 @@ if (require.main === module) {
         process.exit(1)
       })
   }
-  
+//@dev: run `npx hardhat run scripts/compare.js`
 exports.diamondCompare = diamondCompare
