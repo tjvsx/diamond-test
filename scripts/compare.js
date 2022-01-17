@@ -1,23 +1,25 @@
 const { FormatTypes } = require("ethers/lib/utils");
 
+//@dev: run `npx hardhat compile`
+
 async function diamondCompare () {
   const accounts = await ethers.getSigners()
   const contractOwner = accounts[0]
 
-//deployed diamond ABI 
-//(run: npx hardhat run scripts/deploy.js and grab address)
-DIAMOND_ADDRESS='0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
-//gets the HardhatDiamond ABI through deployed Diamond's addresss
-const d0 = await hre.ethers.getContractFactory("HardhatDiamond", DIAMOND_ADDRESS, contractOwner); // contractOwner allows full interaction
-//to JSON...
-const diamond0 = JSON.parse(d0.interface.format(FormatTypes.json));
+  //deployed diamond ABI 
+  //@dev: run `npx hardhat run scripts/deploy.js` and c/p address
+  DIAMOND_ADDRESS='0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512'
+  //gets the HardhatDiamond ABI through deployed Diamond's addresss
+  const d0 = await hre.ethers.getContractFactory("HardhatDiamond", DIAMOND_ADDRESS, contractOwner); // contractOwner allows full interaction
+  //to JSON...
+  const diamond0 = JSON.parse(d0.interface.format(FormatTypes.json));
 
-//local diamond ABI
-const diamond1 = hre.artifacts.readArtifactSync("HardhatDiamond").abi;
+  //local diamond ABI
+  const diamond1 = hre.artifacts.readArtifactSync("HardhatDiamond").abi;
 
-//outputs are similar
-console.log(diamond0)
-console.log(diamond1)
+  //outputs have some matching k/v pairs
+  console.log(diamond0)
+  console.log(diamond1)
 
 }
 
