@@ -13,6 +13,16 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+task(
+  "blockNumber",
+  "Prints the current block number",
+  async (_, { ethers }) => {
+    await ethers.provider.getBlockNumber().then((blockNumber) => {
+      console.log("Current block number: " + blockNumber);
+    });
+  }
+);
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
@@ -20,11 +30,15 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  // defaultNetwork: "ropsten",
+  defaultNetwork: "mainnet",
   solidity: "0.8.4",
   networks: {
     ropsten: {
       url: `${process.env.ALCHEMY_ROPSTEN_URL}`,
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
+    },
+    mainnet: {
+      url: `${process.env.ALCHEMY_MAINNET_URL}`,
       accounts: [`0x${process.env.PRIVATE_KEY}`],
     } 
   },
