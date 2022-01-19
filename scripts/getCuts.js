@@ -4,6 +4,7 @@ ETHERSCAN_API_KEY = 'KT6Q292E4UCS5UPZNRI4KABD4J3AB1MF76'
 // DIAMOND_ADDRESS = '0xC63Dc87f9dD5D64224f7a2664ef22785ceDA6e78' //ropsten network
 DIAMOND_ADDRESS='0x10e138877df69Ca44Fdc68655f86c88CDe142D7F' //BarnBridge
 
+// filtering diamond's event logs for diamondCut emits
 async function getCuts () {
     const accounts = await ethers.getSigners()
     const contractOwner = accounts[0]

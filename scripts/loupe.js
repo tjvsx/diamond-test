@@ -36,7 +36,7 @@ async function diamondLouper () {
         events
         }
         console.log(obj)
-  }
+    }
 
 
 }

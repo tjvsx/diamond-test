@@ -4,6 +4,8 @@ const { FormatTypes } = require("ethers/lib/utils");
 // DIAMOND_ADDRESS = '0xC63Dc87f9dD5D64224f7a2664ef22785ceDA6e78' //ropsten network
 DIAMOND_ADDRESS='0x10e138877df69Ca44Fdc68655f86c88CDe142D7F' //BarnBridge
 
+// testing hardhat-diamond-abi plugin: https://github.com/projectsophon/hardhat-diamond-abi 
+// gets all functions of deployed diamond
 async function hardhatDiamondABI () {
   const accounts = await ethers.getSigners()
   const contractOwner = accounts[0]
