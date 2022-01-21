@@ -1,8 +1,8 @@
 const { FormatTypes } = require("ethers/lib/utils");
 
 // DIAMOND_ADDRESS='0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512' //hardhat network
-// DIAMOND_ADDRESS = '0xC63Dc87f9dD5D64224f7a2664ef22785ceDA6e78' //ropsten network
-DIAMOND_ADDRESS='0x10e138877df69Ca44Fdc68655f86c88CDe142D7F' //BarnBridge
+DIAMOND_ADDRESS = '0xC63Dc87f9dD5D64224f7a2664ef22785ceDA6e78' //ropsten network
+// DIAMOND_ADDRESS='0x10e138877df69Ca44Fdc68655f86c88CDe142D7F' //BarnBridge
 
 // testing hardhat-diamond-abi plugin: https://github.com/projectsophon/hardhat-diamond-abi 
 // gets all functions of deployed diamond

@@ -1,10 +1,12 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 // require("hardhat-diamond-abi");
+import "@nomiclabs/hardhat-etherscan";
 require('dotenv').config();
 
 //tasks
 require("./tasks/makeDiamondABI.ts");
+require("./tasks/postEtherscan.ts");
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -33,8 +35,8 @@ require("./tasks/makeDiamondABI.ts");
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
-  // defaultNetwork: "mainnet",
-  solidity: "0.8.4",
+  defaultNetwork: "ropsten",
+  solidity: "0.8.10",
   networks: {
     ropsten: {
       url: `${process.env.ALCHEMY_ROPSTEN_URL}`,
@@ -44,6 +46,9 @@ module.exports = {
       url: `${process.env.ALCHEMY_MAINNET_URL}`,
       accounts: [`0x${process.env.PRIVATE_KEY}`],
     } 
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
   },
   // diamondAbi: {
   //   // (required) The name of your Diamond ABI
